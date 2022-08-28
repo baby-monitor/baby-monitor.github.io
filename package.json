@@ -1,0 +1,23 @@
+{
+  "name": "baby-monitor-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "./build.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baby-monitor/baby-monitor.github.io.git"
+  },
+  "author": "Andrew Lee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/baby-monitor/baby-monitor.github.io/issues"
+  },
+  "homepage": "https://github.com/baby-monitor/baby-monitor.github.io#readme",
+  "devDependencies": {
+    "typescript": "^4.8.2"
+  }
+}
