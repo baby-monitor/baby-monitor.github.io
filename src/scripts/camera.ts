@@ -32,6 +32,7 @@ peer.on("open", async function(id) {
         audio: true,
     });
     cameraEl.srcObject = audioStream;
+    cameraEl.play();
 
     peer.on("connection", function(connection) {
         const viewerId = connection.peer;
