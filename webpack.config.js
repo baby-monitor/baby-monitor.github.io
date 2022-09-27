@@ -5,6 +5,7 @@ module.exports = {
   "entry": {
     "index": "./src/index.ts",
     "camera": "./src/scripts/camera.ts",
+    "viewer": "./src/scripts/viewer.ts",
   },
   "module": {
     "rules": [
@@ -30,6 +31,12 @@ module.exports = {
       template: "./src/camera.html",
       chunks: ["camera"],
       filename: "camera.html",
+    }),
+    new HtmlWebpackPlugin({
+      title: "Baby Monitor",
+      template: "./src/viewer.html",
+      chunks: ["viewer"],
+      filename: "viewer.html",
     }),
   ],
   "output": {
