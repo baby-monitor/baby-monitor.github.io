@@ -5,19 +5,19 @@ const greeting: string = "hello";
 console.log(greeting);
 
 const hash = document.location.hash;
-let id: string | null = null;
+let cameraId: string | null = null;
 if (!hash || hash == "#") {
-    while (id == null) {
-        id = window.prompt("Enter an ID:");
+    while (cameraId == null) {
+        cameraId = window.prompt("Enter an ID:");
     }
 } else {
-    id = hash.substring(1);
+    cameraId = hash.substring(1);
 }
-document.location.hash = id;
+document.location.hash = cameraId;
 
 const cameraEl = document.getElementById("camera") as HTMLVideoElement;
 
-const peer = new Peer(id, {
+const peer = new Peer(cameraId, {
     config: {
         "iceServers": [], // This makes it local only
         "sdpSemantics": "unified-plan",
@@ -37,4 +37,9 @@ peer.on("open", async function(id) {
         const viewerId = connection.peer;
         peer.call(viewerId, audioStream);
     });
+});
+
+const fullscreenBtn = document.getElementById("fullscreen") as HTMLButtonElement;
+fullscreenBtn.addEventListener("click", function(event) {
+    cameraEl.requestFullscreen();
 });
