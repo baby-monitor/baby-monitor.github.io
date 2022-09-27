@@ -44,7 +44,7 @@ fullscreenBtn.addEventListener("click", function(event) {
     const fullscreenFn = cameraEl.requestFullscreen || (<any>cameraEl).webkitRequestFullscreen;
     if (cameraEl.requestFullscreen) {
         cameraEl.requestFullscreen();
-    } else if ((<any>cameraEl).webkitRequestFullscreen) { // Really, Apple, really???
-        (<any>cameraEl).webkitRequestFullscreen();
+    } else if ((<any>cameraEl).webkitEnterFullscreen) { // Really, Apple, really???
+        (<any>cameraEl).webkitEnterFullscreen();
     }
 });
