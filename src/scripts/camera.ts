@@ -19,7 +19,22 @@ const cameraEl = document.getElementById("camera") as HTMLVideoElement;
 
 const peer = new Peer(id, {
     config: {
-        "iceServers": [],
+        "iceServers": [], // This makes it local only
         "sdpSemantics": "unified-plan",
     },
+});
+
+peer.on("open", async function(id) {
+    const audioStream = await navigator.mediaDevices.getUserMedia({
+        video: {
+            "facingMode": "environment",
+        },
+        audio: true,
+    });
+    cameraEl.srcObject = audioStream;
+
+    peer.on("connection", function(connection) {
+        const viewerId = connection.peer;
+        peer.call(viewerId, audioStream);
+    });
 });

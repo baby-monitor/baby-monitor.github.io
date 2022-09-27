@@ -7,6 +7,8 @@ module.exports = {
     "camera": "./src/scripts/camera.ts",
     "viewer": "./src/scripts/viewer.ts",
   },
+  "mode": "development",
+  "devtool": "inline-source-map",
   "module": {
     "rules": [
       {
