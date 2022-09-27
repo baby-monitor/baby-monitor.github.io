@@ -41,5 +41,10 @@ peer.on("open", async function(id) {
 
 const fullscreenBtn = document.getElementById("fullscreen") as HTMLButtonElement;
 fullscreenBtn.addEventListener("click", function(event) {
-    cameraEl.requestFullscreen();
+    const fullscreenFn = cameraEl.requestFullscreen || (<any>cameraEl).webkitRequestFullscreen;
+    if (cameraEl.requestFullscreen) {
+        cameraEl.requestFullscreen();
+    } else if ((<any>cameraEl).webkitRequestFullscreen) { // Really, Apple, really???
+        (<any>cameraEl).webkitRequestFullscreen();
+    }
 });
